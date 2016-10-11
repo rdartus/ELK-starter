@@ -1,4 +1,6 @@
-sudo apt-get install apache2-utils
+#nginx
+sudo apt-get install apache2-utils -y
+sudo apt-get install nginx selinux-basics selinux-policy-default auditd gedit dkms build-essential linux-headers-generic -y
 
 #install java8
 sudo add-apt-repository -y ppa:webupd8team/java
@@ -8,7 +10,7 @@ sudo apt-get -y install oracle-java8-installer
 #install logstash
 echo 'deb http://packages.elastic.co/logstash/2.2/debian stable main' | sudo tee /etc/apt/sources.list.d/logstash-2.2.x.list
 sudo apt-get update
-sudo apt-get install logstash
+sudo apt-get install logstash -y --allow-unauthenticated
 
 #install elasticsearch
 wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
