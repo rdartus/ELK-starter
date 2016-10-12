@@ -1,4 +1,1 @@
-mkdir /etc/logstash/conf.d/
-cp -i ~/ELK-starter/configs/02-beats-input.conf /etc/logstash/conf.d
-cp -i ~/ELK-starter/configs/10-syslog-filter.conf /etc/logstash/conf.d
-cp -i ~/ELK-starter/configs/30-elasticsearch-output.conf /etc/logstash/conf.d
+cp -i ~/ELK-starter/configs/logstash-configs.conf /etc/logstash/conf.d
