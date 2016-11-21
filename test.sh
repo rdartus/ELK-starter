@@ -1,1 +1,1 @@
-sudo htpasswd -c /etc/nginx/htpasswd.users test <<<test2
+sudo echo -e "password\npassword\n" | htpasswd -c /etc/nginx/htpasswd.users 
