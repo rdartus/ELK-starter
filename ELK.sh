@@ -31,11 +31,11 @@ sudo htpasswd -c /etc/nginx/htpasswd.users jeank
 
 #find and replace
 #server.host: "localhost"
-sudo nano /opt/kibana/config/kibana.yml
+# sudo nano /opt/kibana/config/kibana.yml
 
-#find and replace 
+#find and replace
 #network.host: localhost
-sudo nano /etc/elasticsearch/elasticsearch.yml
+# sudo nano /etc/elasticsearch/elasticsearch.yml
 
 #add the exe to the booting sequence
 sudo update-rc.d kibana defaults 96 9
@@ -68,12 +68,12 @@ sudo openssl req -config /etc/ssl/openssl.cnf -x509 -days 3650 -batch -nodes -ne
 #        proxy_set_header Upgrade $http_upgrade;
 #        proxy_set_header Connection 'upgrade';
 #        proxy_set_header Host $host;
-#        proxy_cache_bypass $http_upgrade;        
+#        proxy_cache_bypass $http_upgrade;
 #    }
 #}
 #
 
-sudo nano /etc/nginx/sites-available/default
+# sudo nano /etc/nginx/sites-available/default
 
 #restart the services
 
