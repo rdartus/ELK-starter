@@ -76,9 +76,9 @@ $IPT -A OUTPUT -o lo -j ACCEPT
 
 echo "Allowing new and established incoming connections to port 80, 443"
 
-$IPT -A INPUT  -p tcp -m multiport --dports 80,443,5601 -j ACCEPT
+$IPT -A INPUT  -p tcp -m multiport --dports 80,443,5601,5602 -j ACCEPT
 
-$IPT -A OUTPUT -p tcp -m multiport --sports 80,443,5601 -j ACCEPT
+$IPT -A OUTPUT -p tcp -m multiport --sports 80,443,5601,5602 -j ACCEPT
 
 
 

@@ -1,5 +1,5 @@
 server {
-    listen 5601;
+    listen 5602;
 
     server_name example.com;
     auth_basic "Restricted Access";
