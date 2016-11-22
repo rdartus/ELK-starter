@@ -38,8 +38,10 @@ sudo htpasswd -c /etc/nginx/htpasswd.users jeank
 # sudo nano /etc/elasticsearch/elasticsearch.yml
 
 #add the exe to the booting sequence
-sudo update-rc.d kibana defaults 96 9
-sudo update-rc.d elasticsearch defaults 95 10
+sudo update-rc.d kibana defaults
+sudo update-rc.d kibana enabled
+sudo update-rc.d elasticsearch defaults
+sudo update-rc.d elasticsearch enabled 
 
 sudo service kibana start
 sudo service elasticsearch restart
@@ -49,31 +51,11 @@ sudo mkdir /etc/pki/tls/private
 #Find the [ v3_ca ]
 # add the following under the section title
 #subjectAltName = IP: ELK_server_private_IP
-sudo nano /etc/ssl/openssl.cnf
+# sudo nano /etc/ssl/openssl.cnf
+sudo chmod +x ./config.sh
+sudo ./config.sh
 cd /etc/pki/tls
 sudo openssl req -config /etc/ssl/openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
-
-#replace /etc/nginx/sites-available/default by the following
-#server {
-#    listen 80;
-#
-#    server_name example.com;
-
-#    auth_basic "Restricted Access";
-#    auth_basic_user_file /etc/nginx/htpasswd.users;
-
-#    location / {
-#        proxy_pass http://localhost:5601;
-#        proxy_http_version 1.1;
-#        proxy_set_header Upgrade $http_upgrade;
-#        proxy_set_header Connection 'upgrade';
-#        proxy_set_header Host $host;
-#        proxy_cache_bypass $http_upgrade;
-#    }
-#}
-#
-
-# sudo nano /etc/nginx/sites-available/default
 
 #restart the services
 
