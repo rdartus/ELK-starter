@@ -1,4 +1,37 @@
 * { padding:0; margin:0; outline:0; }
+
+@font-face {
+    font-family: "trifont";
+    src: url("Triforce.ttf");
+}
+
+#inner-main-wrapper {
+
+    box-sizing: border-box;
+    width: 940px;
+    margin: 40px auto;
+		/*padding-top: 200px;*/
+    background: rgba(213, 217, 225, 0.5);
+    border: 1px solid rgba(161, 167, 178, 0.5);
+    border-radius: 3px;
+    padding: 20px;
+
+}
+
+#dead-redirect {
+	font-family: trifont;
+	text-align: center;
+	font-size: 28px;
+	color: #8b0000 ;
+}
+
+#dead-end{
+	font-family: trifont;
+	text-align: center;
+	font-size: 35px;
+	color: #8b0000 ;
+}
+
 body {
 	background:#fff url(images/body.gif) repeat-x 0 0;
 	font-family: "Trebuchet MS", Arial, sans-serif;

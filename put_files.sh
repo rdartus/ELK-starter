@@ -1,5 +1,6 @@
-cp -i ~/ELK-starter/configs/logstash/logstash-configs.conf /etc/logstash/conf.d
+cp -f ~/ELK-starter/configs/logstash/logstash-configs.conf /etc/logstash/conf.d
 cp -i ~/ELK-starter/configs/nginx/my-default /etc/nginx/sites-available/
+cp -i ~/ELK-starter/configs/nginx/proxy-kibana /etc/nginx/sites-available/
 cp -f ~/ELK-starter/configs/kibana/kibana.yml /opt/kibana/config/
 cp -f ~/ELK-starter/configs/elasticsearch/elasticsearch.yml /etc/elasticsearch/
 cp -f ~/ELK-starter/configs/ssl/openssl.cnf /etc/ssl/
