@@ -39,9 +39,9 @@ sudo htpasswd -c /etc/nginx/htpasswd.users jeank
 
 #add the exe to the booting sequence
 sudo update-rc.d kibana defaults
-sudo update-rc.d kibana enabled
+sudo update-rc.d kibana enable
 sudo update-rc.d elasticsearch defaults
-sudo update-rc.d elasticsearch enabled 
+sudo update-rc.d elasticsearch enable
 
 sudo service kibana start
 sudo service elasticsearch restart
