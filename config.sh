@@ -2,6 +2,7 @@ cp -f ~/ELK-starter/configs/logstash/logstash-configs.conf /etc/logstash/conf.d
 mkdir -p /etc/logstash/patterns
 cp -f ~/ELK-starter/configs/logstash/pattern-nginx /etc/logstash/patterns
 cp -i ~/ELK-starter/configs/nginx/my-default /etc/nginx/sites-available/
+rm  /etc/nginx/sites-enabled/*
 ln -s /etc/nginx/sites-available/my-default /etc/nginx/sites-enabled/
 cp -i ~/ELK-starter/configs/nginx/proxy-kibana /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/proxy-kibana /etc/nginx/sites-enabled/
