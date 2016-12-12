@@ -8,7 +8,8 @@ rm  /etc/nginx/sites-enabled/*
 ln -s /etc/nginx/sites-available/my-default /etc/nginx/sites-enabled/
 cp -f ~/ELK-starter/configs/nginx/proxy-kibana /etc/nginx/sites-available/
 ln -s /etc/nginx/sites-available/proxy-kibana /etc/nginx/sites-enabled/
-cp -f ~/ELK-starter/configs/kibana/kibana.yml /opt/kibana/config/
+cp -f ~/ELK-starter/configs/kibana/kibana.yml /etc/kibana/
+# cp -f ~/ELK-starter/configs/kibana/kibana.yml /opt/kibana/config/
 cp -f ~/ELK-starter/configs/elasticsearch/elasticsearch.yml /etc/elasticsearch/
 cp -f ~/ELK-starter/configs/ssl/openssl.cnf /etc/ssl/
 cp -avrf ~/ELK-starter/shop-around/* /usr/share/nginx/html/
