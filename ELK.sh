@@ -10,6 +10,7 @@ sudo apt-get -y install oracle-java8-installer
 sudo apt-get -y install apt-transport-https
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+sudo apt-get update
 sudo apt-get install logstash -y
 
 #install elasticsearch
@@ -18,6 +19,8 @@ sudo apt-get -y install elasticsearch
 #install kibana
 sudo apt-get -y install kibana
 
+
+# old version
 #install logstash
 # echo 'deb http://packages.elastic.co/logstash/2.2/debian stable main' | sudo tee /etc/apt/sources.list.d/logstash-2.2.x.list
 # sudo apt-get update
@@ -35,19 +38,6 @@ sudo apt-get -y install kibana
 # sudo apt-get -y install kibana
 
 
-# create the user jeank
-# specify the password mdp
-sudo htpasswd -c /etc/nginx/htpasswd.users jeank
-
-
-#find and replace
-#server.host: "localhost"
-# sudo nano /opt/kibana/config/kibana.yml
-
-#find and replace
-#network.host: localhost
-# sudo nano /etc/elasticsearch/elasticsearch.yml
-
 #add the exe to the booting sequence
 sudo update-rc.d kibana defaults
 sudo update-rc.d kibana enable
@@ -63,13 +53,20 @@ sudo mkdir /etc/pki/tls/private
 # add the following under the section title
 #subjectAltName = IP: ELK_server_private_IP
 # sudo nano /etc/ssl/openssl.cnf
-sudo chmod +x ./config.sh
-sudo ./config.sh
 cd /etc/pki/tls
 sudo openssl req -config /etc/ssl/openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
 
 #restart the services
+sudo htpasswd -c /etc/nginx/htpasswd.users jeank
+
+sudo chmod +x ~/ELK-starter/config.sh
+sudo ~/ELK-starter/config.sh
 
 sudo service nginx restart
-sudo service kibana start
+sudo service kibana restart
+sudo service logstash restart
 sudo service elasticsearch restart
+
+# password for reverse proxy-kibana
+# create the user jeank
+# specify the password mdp
