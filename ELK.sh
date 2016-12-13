@@ -10,6 +10,7 @@ sudo apt-get -y install oracle-java8-installer
 sudo apt-get -y install apt-transport-https
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-5.x.list
+sudo apt-get update
 sudo apt-get install logstash -y
 
 #install elasticsearch
@@ -56,15 +57,16 @@ cd /etc/pki/tls
 sudo openssl req -config /etc/ssl/openssl.cnf -x509 -days 3650 -batch -nodes -newkey rsa:2048 -keyout private/logstash-forwarder.key -out certs/logstash-forwarder.crt
 
 #restart the services
+sudo htpasswd -c /etc/nginx/htpasswd.users jeank
+
+sudo chmod +x ~/ELK-starter/config.sh
+sudo ~/ELK-starter/config.sh
 
 sudo service nginx restart
-sudo service kibana start
+sudo service kibana restart
+sudo service logstash restart
 sudo service elasticsearch restart
 
 # password for reverse proxy-kibana
 # create the user jeank
 # specify the password mdp
-sudo htpasswd -c /etc/nginx/htpasswd.users jeank
-
-sudo chmod +x ./config.sh
-sudo ./config.sh

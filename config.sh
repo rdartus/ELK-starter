@@ -13,3 +13,5 @@ cp -f ~/ELK-starter/configs/kibana/kibana.yml /etc/kibana/
 cp -f ~/ELK-starter/configs/elasticsearch/elasticsearch.yml /etc/elasticsearch/
 cp -f ~/ELK-starter/configs/ssl/openssl.cnf /etc/ssl/
 cp -avrf ~/ELK-starter/shop-around/* /usr/share/nginx/html/
+
+sudo reboot
